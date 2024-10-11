@@ -1,0 +1,1 @@
+Average age of filtered passengers: 30.386
