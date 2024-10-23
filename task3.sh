@@ -1,1 +1,1 @@
-sed -i 's/\r$//' titanic.csv & gawk -v FPAT="[^,\"]*|\"([^\"]|\"\")*\"" '$3==2 && $12=="S" { print  $0}' titanic.csv | sed 's/female/F/g; s/male/M/g' | gawk -v FPAT="[^,\"]*|\"([^\"]|\"\")*\"" '$6 != "" {sum += $6;count++} END {print sum/count}'
+sed -i 's/\r$//' titanic.csv & gawk -v FPAT="[^,\"]*|\"([^\"]|\"\")*\"" '$3==2 && $12=="S" { print  $0}' titanic.csv | sed 's/female/F/g; s/male/M/g' | gawk -v FPAT="[^,\"]*|\"([^\"]|\"\")*\"" '{print $0} $6 != "" {sum += $6;count++} END {print "The result is " sum/count}'
